@@ -131,6 +131,12 @@ int Jacobi(int N, double** A, double* b, double* X, double eps) {
 bool Convergence(int N, double** A, double** minor) {
 	if (simm(A, N)) {
 		if (Plus(N, A, minor)) {
+			if(Plus(N,A,minor2){
+				return true;
+			}else{
+				return false;
+			}
+			
 		}
 		else {
 			return false;
@@ -147,18 +153,20 @@ int main()
 
 
 	double eps;
-	double* x, * b, ** minor;
+	double* x, * b, ** minor,**minor2;
 	double** A;
 	int n;
 	cin >> n >> eps;
 	x = new double[n];
 	b = new double[n];
 	minor = new double* [n];
+	minor2 = new double* [n];
 	A = new double* [n];
 	for (int i = 0; i < n; i++) {
 		cin >> x[i];
 		A[i] = new double[n];
 		minor[i] = new double[n];
+		minor2[i] = new double[n];
 	}
 	for (int i = 0; i < n; i++) {
 		cin >> b[i];
@@ -166,6 +174,7 @@ int main()
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			cin >> A[i][j];
+			minor2[i][j] = A[i][j];
 			minor[i][j] = A[i][j];
 		}
 	}
